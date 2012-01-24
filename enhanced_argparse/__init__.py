@@ -34,4 +34,4 @@ class EnhancedArgumentParser(argparse.ArgumentParser):
         self.set_defaults(_execute=func)
 
     def run(self):
-        self._runner()
+        return self._runner()
