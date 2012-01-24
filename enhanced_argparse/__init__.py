@@ -1,4 +1,5 @@
 import argparse
+import sys
 
 class EnhancedArgumentParser(argparse.ArgumentParser):
 
@@ -23,10 +24,10 @@ class EnhancedArgumentParser(argparse.ArgumentParser):
         self._current_subparser._name_parser_map[name] = parser
         return parser
     
-    def parse_args(self):
-        namespace = argparse.ArgumentParser.parse_args(self)
-        if hasattr(args, '__execute'):
-            self._runner = lambda: args.__execute(namespace)
+    def parse_args(self, args=sys.argv[1:]):
+        namespace = argparse.ArgumentParser.parse_args(self, args)
+        if hasattr(namespace, '_execute'):
+            self._runner = lambda: namespace._execute(namespace)
         return namespace
 
     def set_runner(self, func):
