@@ -31,7 +31,7 @@ class EnhancedArgumentParser(argparse.ArgumentParser):
         return namespace
 
     def set_runner(self, func):
-        self.set_defaults(__execute=func)
+        self.set_defaults(_execute=func)
 
     def run(self):
         self._runner()
