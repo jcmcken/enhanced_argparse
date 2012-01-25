@@ -5,7 +5,7 @@ This module is in some sense mindlessly simple, preferring to reuse and extend `
 
 Some simple examples:
 
-A simple python script...::
+A simple python script:
 
     # test.py
 
@@ -20,7 +20,7 @@ A simple python script...::
 
     main.parse_args()
 
-Then from the command line...::
+Then from the command line:
 
     [jcmcken@localhost ~]$ python test.py -h
     usage: main [-h] {sub1} ...
@@ -42,5 +42,29 @@ Then from the command line...::
 
     optional arguments:
       -h, --help  show this help message and exit
+
+Connecting functions to parser commands:
+
+    # test2.py
+
+    from enhanced_argparse import EnhancedArgumentParser as EAP
+
+    def do_something(namespace):
+        print "The namespace is", repr(namespace)
+
+    main = EAP(prog='main')
+    sub1 = EAP(prog='sub1')
+    main.add_child_parser(sub1)
+    sub1.set_runner(do_something)
+
+    main.parse_args()
+
+    main.run()
+
+Then from the shell:
+
+    [jcmcken@localhost ~]$ python test2.py sub1
+    The namespace is Namespace(_execute=<function do_something at 0x7f0843a0f488>)
+
 
 
