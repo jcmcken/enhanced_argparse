@@ -1,7 +1,7 @@
 Intro
 -----
 
-This module is in some sense mindlessly simple, preferring to reuse and extend ``argparse``'s built-in sub-parser capabilities rather than invent a new DSL or parsing method. It's primary motivation is adding easy subcommand nesting and running.
+This module is in some sense mindlessly simple, preferring to reuse and extend ``argparse``'s built-in sub-parser capabilities rather than invent a new DSL or parsing method. Its primary motivation is adding easy subcommand nesting and running.
 
 Here are some simple examples...
 
