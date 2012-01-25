@@ -5,7 +5,8 @@ This module is in some sense mindlessly simple, preferring to reuse and extend `
 
 Some simple examples:
 
-.. codeblock:: python
+A simple python script...::
+
     # test.py
 
     from enhanced_argparse import EnhancedArgumentParser as EAP
@@ -19,9 +20,7 @@ Some simple examples:
 
     main.parse_args()
 
-Then from the command line...
-
-.. codeblock:: bash
+Then from the command line...::
 
     [jcmcken@localhost ~]$ python test.py -h
     usage: main [-h] {sub1} ...
